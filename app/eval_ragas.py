@@ -8,8 +8,12 @@ from ragas import SingleTurnSample, EvaluationDataset
 from langchain_openai import ChatOpenAI
 from ragas.metrics import faithfulness, answer_relevancy, context_precision, context_recall
 from ragas.run_config import RunConfig
+import os
 
-oai_llm = ChatOpenAI(model="gpt-4o-mini")
+from dotenv import load_dotenv
+load_dotenv()
+
+oai_llm = ChatOpenAI(model=os.getenv("LLM_MODEL","gpt-4.1-mini"))
 
 def load_jsonl(path):
     with open(path, "r", encoding="utf-8") as f:
