@@ -65,7 +65,7 @@ async def _build_chain(category : str = None):
 
 
 
-async def answer_with_docs_async(question: str,category:str) -> Tuple[str, List[str],List[str]]:
+async def answer_with_docs_async(question: str, category: str | None = None) -> Tuple[str, List[str], List[str]]:
     chain = await _build_chain(category)
     result = await chain.ainvoke({"input": question})
     answer: str = result["answer"]

@@ -6,3 +6,7 @@ commit-plan.txt
 generate-commit-plan.sh
 app/.DS_Store
 data/.DS_Store
+
+.env
+env/*
+.DS_Store
