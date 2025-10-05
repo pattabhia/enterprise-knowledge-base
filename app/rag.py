@@ -58,7 +58,7 @@ async def _build_chain(category : str = None):
         base_retriever=base_retriever,
         base_compressor = compressor
     )
-    llm = ChatOpenAI(model="gpt-4o-mini")
+    llm = ChatOpenAI(model=os.getenv("LLM_MODEL","gpt-4.1-mini"), temperature=0)
     doc_chain = create_stuff_documents_chain(llm, PROMPT)
     rag_chain = create_retrieval_chain(retriever, doc_chain)
     return rag_chain
